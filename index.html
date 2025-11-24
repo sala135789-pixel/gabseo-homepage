@@ -1,100 +1,183 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>갑서 - 갑자기 부자가 된 당신을 위한 서비스</title>
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
   <style>
+    /* 공통 폰트/컬러 */
     body {
       margin: 0;
-      font-family: 'Pretendard', sans-serif;
-      background: #fafafa;
-      color: #222;
+      font-family: 'Noto Sans KR', sans-serif;
+      background-color: #fff;
+      color: #1A1A1A;
     }
+    a { text-decoration: none; color: inherit; }
+
+    /* 헤더 배너 */
     header {
-      height: 100vh;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      background: #f5c400; color:#000;
-      color: #fff;
-      overflow: hidden;
-      position: relative;
-    }
-
-    /* 모션 캘리그래피 효과 */
-    .banner-text {
-      font-size: 2.4rem;
-      text-align: center;
-      line-height: 1.5;
-      opacity: 0;
-      animation: fadeInUp 2s ease-out forwards;
-      white-space: pre-line;
-    }
-
-    @keyframes fadeInUp {
-      0% { opacity: 0; transform: translateY(40px); }
-      100% { opacity: 1; transform: translateY(0); }
-    }
-
-    .section {
+      background: #FFD93D; /* 감성적 노랑 */
       padding: 80px 20px;
-      max-width: 900px;
+      text-align: center;
+    }
+    header h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: 3rem;
+      margin: 0 0 20px 0;
+      line-height: 1.2;
+    }
+    header p {
+      font-size: 1.2rem;
+      max-width: 600px;
       margin: 0 auto;
     }
 
-    .cards {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    /* 카테고리 카드 */
+    .categories {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
       gap: 20px;
-      margin-top: 40px;
+      padding: 40px 20px;
     }
-
     .card {
-      background: white;
-      padding: 20px;
-      border-radius: 16px;
-      box-shadow: 0 6px 18px rgba(0,0,0,0.07);
+      background: #fff;
+      border: 1px solid #FFD93D;
+      border-radius: 15px;
+      width: 200px;
+      text-align: center;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+      transition: transform 0.3s;
+    }
+    .card:hover {
+      transform: translateY(-5px);
+    }
+    .card img {
+      width: 100%;
+      border-top-left-radius: 15px;
+      border-top-right-radius: 15px;
+    }
+    .card h3 {
+      margin: 15px 0 10px 0;
+    }
+    .card p {
+      font-size: 0.9rem;
+      padding: 0 10px 15px 10px;
     }
 
-    footer {
-      padding: 40px;
+    /* 추천 피드 슬라이드 */
+    .feed {
+      padding: 40px 20px;
+      background: #FFF8E1;
+    }
+    .feed h2 {
       text-align: center;
-      color: #777;
+      margin-bottom: 30px;
+      font-family: 'Playfair Display', serif;
+    }
+    .feed-container {
+      display: flex;
+      overflow-x: auto;
+      gap: 20px;
+      padding-bottom: 10px;
+    }
+    .feed-card {
+      min-width: 250px;
+      background: #fff;
+      border-radius: 12px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      flex-shrink: 0;
+    }
+    .feed-card img {
+      width: 100%;
+      border-radius: 12px 12px 0 0;
+    }
+    .feed-card .content {
+      padding: 15px;
+    }
+    .feed-card h4 {
+      margin: 0 0 10px 0;
+    }
+
+    /* Footer */
+    footer {
+      background: #1A1A1A;
+      color: #fff;
+      text-align: center;
+      padding: 20px;
+      font-size: 0.9rem;
+    }
+
+    /* 반응형 */
+    @media (max-width: 600px) {
+      .categories {
+        flex-direction: column;
+        align-items: center;
+      }
+      .feed-container {
+        flex-direction: column;
+        align-items: center;
+      }
+      .feed-card {
+        width: 90%;
+      }
     }
   </style>
 </head>
 <body>
   <header>
-    <div class="banner-text">
-갑자기 부자가 될 수는 있어도,
-갑자기 안목을 얻을 순 없다.
-    </div>
+    <h1>갑자기 부자가 될 수 있어도<br>갑자기 안목을 얻을 순 없다</h1>
+    <p>무엇을 사야할지, 무엇을 보고, 무엇을 찾아야 할지, 무엇을 가져야 할지 고민인 당신에게 안목을 제공하는 서비스, 갑서</p>
   </header>
 
-  <section class="section">
-    <h2>안목을 위한 선택의 장</h2>
-    <p>
-      무엇을 사야 할지, 무엇을 봐야 할지, 무엇을 찾아야 할지, 무엇을 가져야 할지 고민하는 당신에게.
-      관심 있는 테마 피드를 선택하고, 취향 있는 사람들의 큐레이션을 만나보세요.
-      패션 · 굿즈 · 화장품 · 맛집 등 다양한 카테고리에서 안목을 넓히고 실제 미팅도 가능합니다.
-    </p>
+  <section class="categories">
+    <div class="card">
+      <img src="https://via.placeholder.com/200x150.png?text=패션" alt="패션">
+      <h3>패션</h3>
+      <p>큐레이터가 추천하는 스타일과 굿즈</p>
+    </div>
+    <div class="card">
+      <img src="https://via.placeholder.com/200x150.png?text=뷰티" alt="뷰티">
+      <h3>뷰티</h3>
+      <p>최신 화장품, 뷰티 팁을 한눈에</p>
+    </div>
+    <div class="card">
+      <img src="https://via.placeholder.com/200x150.png?text=맛집" alt="맛집">
+      <h3>맛집</h3>
+      <p>요즘 핫한 맛집 추천</p>
+    </div>
+    <div class="card">
+      <img src="https://via.placeholder.com/200x150.png?text=굿즈" alt="굿즈">
+      <h3>굿즈</h3>
+      <p>큐레이터들이 고른 감각적 굿즈</p>
+    </div>
+  </section>
 
-    <div class="cards">
-      <div class="card">
-        <h3>패션 & 굿즈</h3>
-        <p>취향 있는 사람들이 직접 올린 아이템을 보고 영감을 얻으세요.</p>
+  <section class="feed">
+    <h2>추천 피드</h2>
+    <div class="feed-container">
+      <div class="feed-card">
+        <img src="https://via.placeholder.com/250x150.png?text=추천1" alt="추천1">
+        <div class="content">
+          <h4>패션 컬렉션</h4>
+          <p>이번 시즌 하이엔드 패션 모음</p>
+        </div>
       </div>
-
-      <div class="card">
-        <h3>라이프스타일</h3>
-        <p>맛집, 공간, 경험을 공유하는 피드로 안목을 확장하세요.</p>
+      <div class="feed-card">
+        <img src="https://via.placeholder.com/250x150.png?text=추천2" alt="추천2">
+        <div class="content">
+          <h4>맛집 추천</h4>
+          <p>서울 핫 플레이스 모음</p>
+        </div>
       </div>
-
-      <div class="card">
-        <h3>인사이트 미팅</h3>
-        <p>관심사가 맞는 사람과 실제로 만나 대화를 나누세요.</p>
+      <div class="feed-card">
+        <img src="https://via.placeholder.com/250x150.png?text=추천3" alt="추천3">
+        <div class="content">
+          <h4>뷰티 신상</h4>
+          <p>올해 주목할 화장품 리스트</p>
+        </div>
       </div>
     </div>
   </section>
@@ -102,5 +185,6 @@
   <footer>
     © 2025 갑서 (갑자기 부자가 된 당신을 위한 서비스)
   </footer>
+
 </body>
 </html>
